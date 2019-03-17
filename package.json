@@ -2,8 +2,13 @@
   "name": "contactmanager",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express-session": "^1.15.6",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^6.0.1",
@@ -15,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-servermon": "nodemon src/server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

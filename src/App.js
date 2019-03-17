@@ -3,8 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class App extends Component {
+ async componentDidMount() {
+    try {
+      const response = await axios('http://localhost:8000/', {
+        method: 'get'
+      });
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   render() {
     return (
       <div className="App container center">
