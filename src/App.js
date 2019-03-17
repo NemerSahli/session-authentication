@@ -4,9 +4,10 @@ import './App.css';
 import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { logIn, loadItems, logOut } from './actions/access-my-page';
 
 class App extends Component {
- async componentDidMount() {
+  async componentDidMount() {
     try {
       const response = await axios('http://localhost:8000/', {
         method: 'get'
@@ -29,9 +30,18 @@ class App extends Component {
           <div className="col-12 text-center">
             password: {this.props.user.password}
           </div>
-          <Button className="btn-danger">login</Button>
-          <Button className="btn-danger">load data from secret area</Button>
-          <Button className="btn-danger">logout</Button>
+          <Button
+            className="btn-danger"
+            onClick={this.props.logIn.bind(this, this.props.user)}
+          >
+            login
+          </Button>
+          <Button className="btn-danger" onClick={this.props.loadItems}>
+            load data from secret area
+          </Button>
+          <Button className="btn-danger" onClick={this.props.logOut}>
+            logout
+          </Button>
         </div>
       </div>
     );
@@ -43,5 +53,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  { logIn, loadItems, logOut }
 )(App);
