@@ -1,0 +1,9 @@
+.App,
+div,
+input,
+button {
+  margin: 10px;
+}
+.center {
+  margin: 0 auto;
+}
